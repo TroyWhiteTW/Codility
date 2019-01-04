@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(A = [10, 2, 5, 1, 8, 20]) {
+        A = [10, 50, 5, 1];
+        A = [5, 3, 3];
+
+        A.sort((a, b) => a - b);
+
+        for (let i = 0; i < A.length - 2; i++) {
+            if (A[i] + A[i + 1] > A[i + 2]) return 1;
+        }
+
+        return 0;
+    }
+
+    console.log(solution());
+</script>
+</body>
+</html>

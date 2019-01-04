@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // https://app.codility.com/demo/results/training4X7RR9-ATA/
+    function solution(N = 1041) {
+        const binaryN = N.toString(2);
+
+        let maxGap = 0;
+        let binaryGap = 0;
+
+        for (let i = 0; i < binaryN.length; i++) {
+            switch (binaryN[i]) {
+                case '0':
+                    binaryGap++;
+                    break;
+                case '1':
+                    if (binaryGap > maxGap) maxGap = binaryGap;
+
+                    binaryGap = 0;
+                    break;
+            }
+        }
+
+        return maxGap;
+    }
+
+    console.log(solution());
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // https://app.codility.com/demo/results/trainingJBM9CH-CH5/
+    function solution(A = [3, 8, 9, 7, 6], K = 3) {
+        // A = [0, 0, 0];
+        // K = 1;
+
+        // A = [1, 2, 3, 4];
+        // K = 4;
+
+        const result = [];
+
+        for (let i = 0; i < A.length; i++) {
+            result[(i + K) % A.length] = A[i];
+        }
+
+        return result;
+    }
+
+    console.log(solution());
+</script>
+</body>
+</html>

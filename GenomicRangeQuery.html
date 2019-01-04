@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(S = 'CAGCCTA', P = [2, 5, 0], Q = [4, 5, 6]) {
+        // S = 'AC';
+        // P = [0, 0, 1];
+        // Q = [0, 1, 1];
+        let a = [0], c = [0], g = [0], t = [0];
+        switch (S[0]) {
+            case 'A':
+                a[0]++;
+                break;
+            case 'C':
+                c[0]++;
+                break;
+            case 'G':
+                g[0]++;
+                break;
+            case 'T':
+                t[0]++;
+                break;
+        }
+        for (let i = 0; i < S.length + 1; i++) {
+            a[i + 1] = a[i];
+            c[i + 1] = c[i];
+            g[i + 1] = g[i];
+            t[i + 1] = t[i];
+
+            switch (S[i]) {
+                case 'A':
+                    a[i + 1]++;
+                    break;
+                case 'C':
+                    c[i + 1]++;
+                    break;
+                case 'G':
+                    g[i + 1]++;
+                    break;
+                case 'T':
+                    t[i + 1]++;
+                    break;
+            }
+        }
+
+        let result = [];
+        for (let i = 0; i < P.length; i++) {
+            let temp = 0;
+
+            if (t[Q[i] + 1] - t[P[i]] !== 0) {
+                temp = 4;
+            }
+
+            if (g[Q[i] + 1] - g[P[i]] !== 0) {
+                temp = 3;
+            }
+
+            if (c[Q[i] + 1] - c[P[i]] !== 0) {
+                temp = 2;
+            }
+
+            if (a[Q[i] + 1] - a[P[i]] !== 0) {
+                temp = 1;
+            }
+
+            if (temp === 0) {
+                switch (S[P[i]]) {
+                    case 'A':
+                        temp = 1;
+                        break;
+                    case 'C':
+                        temp = 2;
+                        break;
+                    case 'G':
+                        temp = 3;
+                        break;
+                    case 'T':
+                        temp = 4;
+                        break;
+                }
+            }
+
+            result.push(temp);
+        }
+
+        return result;
+    }
+
+    console.log(solution());
+</script>
+</body>
+</html>

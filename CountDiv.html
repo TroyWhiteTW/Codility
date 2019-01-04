@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(A = 6, B = 11, K = 2) {
+        return Math.floor(B / K) - Math.floor(A % K === 0 ? A / K - 1 : A / K);
+    }
+
+    console.log(solution());
+</script>
+</body>
+</html>
