@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // https://app.codility.com/demo/results/trainingRK2T86-6PG/
+    const solution = A => {
+        if (A.length === 0) return 1;
+        if (A.length === 1) return (A[0] === 1 ? 2 : 1);
+
+        A.sort((a, b) => a - b);
+
+        let target = 1;
+
+        for (let i = 0; i < A.length; i++, target++) {
+            if (A[i] !== target) return target
+        }
+
+        return target;
+    };
+
+    console.log(solution([2, 3, 1, 5]));
+</script>
+</body>
+</html>
